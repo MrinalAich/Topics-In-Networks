@@ -1,0 +1,120 @@
+@ 1.30 PM
+
+Hi, I am working on ServiceChaning implementation on SDN. I tend to get distract a lot while working as I prefer working on a development setup during my industry time.
+Time-to-time, I move away from my actual coding. As of now, I have these goals set regarding the implementaion.
+
+1. DS for flow table entries.
+per-dpid -> (in_port, vlan_id) <-> (vlan_id, out_port)
+
+
+2. On detecting switch, inside the flow_mod message, inform to add vlan_id (Push vlan_id)
+
+3. packet_filtering, work on the match_fields of the switch.
+
+4. Implementaion of MiddleBoxes in mininet.
+
+
+@ 2.05 PM 
+Again wasted time playing a mobile game. Lunch Time!!!
+
+
+@ 3.15 PM
+I am still working with the implementaion of MiddleBoxes in mininet, got hold of the commit-history by Mr.Yeast.
+I hope to make the changes run in my setup.
+
+
+@ 5.00 PM
+It's 5 o'clock and I am still stuck with the compilation issue. Dont know what to do.
+Trying to checkout another branch and simply compile the code.
+
+
+@ 6.00 PM
+Finally, finally, finally. I have compiled the changes in mininet properly. It was simple, just do 'make install'.
+I wasted more than 3 hours just for compilation which could have been done in 10 mins, if I was attentive to read the steps. 
+Now, Task-4 is done.
+
+@ 8.00 PM
+Now, I found out that simply Flooding to middleboxes was incorrect as it was forwarding the same packet back to the switch. So, had to move my spannnig tree module from OF1.0 to OF1.3
+and it works fine with the presence of MiddleBoxes. Now, I am only working with Ryu Controller. Next, is to look for events when a MiddleBox enters the topology. Seems time-consuming!!!
+
+
+@ 10.00 PM
+Back to place where I was at 8 o''clock as Event based handling on MiddleBox enter is not possible. The workaround is to use the event Event.Controller.Network.PortAdd which is called 
+using REST API, I dont want to go into this direction. So, I will assume the ports with which switch will be connected to a middlebox. Its time to work on Tast-1. 
+
+
+@ 12.30 PM
+Completed Task-1. Hardest part of the Project to start.
+
+Day - 28 Jan 2017
+
+@ 5.00 am
+As I have to give away my machine so I pulled out an all nighter. The result was grasping FlowMatch and FlowAction properly. The code runs but creates a storm in the network which leads to wireshark getting hanged. My intution says the issue can be solved by 'wildcards'.
+
+
+@ 10.20 PM
+The entire day got wasted because of repairing at the service centre. To carry on yesterdays work, I have checked that flow_match and action are working.
+Time to look into the actual problem. All the best to me.
+
+
+@ 1.40 AM
+All the small modules of the work have been verified except MiddleBox is not replying back. Again. have to check the changes in mininet.
+Task-2 & Task-3 completed.
+
+
+@ 3.10 AM
+Finally, cracked the MiddleBox replying issue in 'ether-bridge' module. Now, the packets are being forwarded as per the flow rules of the code.
+Now, to modify flow rules to handle only ICMP packets.
+
+
+
+@ 9.45 AM
+Got early to finish off the work, last notes issue is resolved. The packets are being forwarded as per the flow-rules and now I have to declare appropriate flows after ServiceChaning is
+completed, e.g. The ARP reply is handled properly but delivered via interface. Just a small niggle before completion.
+
+
+@ 10.50 AM
+Again reading the paper, found that I completely ignored a concept of the paper named SwitchTunnels (I handled it using vlan_id but it creates the above problem). I have to look how it works in case of SDN switches.
+
+
+@ 1.00 PM
+Sitll havent figured out the way to handle Tunelled switches and to route the traffic to appropriate destination.
+
+
+
+29 Jan, 2017
+-------------
+
+
+@ 4.00 AM
+I throughly wasted the entire day because of the destination forwarding issue, just couldnt crack the idea. But while sleeping I figured out to handle this using Ethernet source address into the flow matching field. I will implement this and then go to sleep.
+
+@ 4.40 AM
+The issue is resolved, ARP request and reply are working but the flow rules are for ARP only. I have to look how get ICMP packets into the service chain aswell.
+
+
+
+31 Jan, 2017
+-------------
+
+@ 7.30 PM
+Finally, the simple implementation of Service Chaning is completed. Now, I have to remove the hard-coding dependency of eth_source addr. 
+1. Make the flow add rules dynamic, i.e. on receiving first packet_in message, then appropriate rules should be added to the switch along with the reverse path.
+2. Do not consider ARP packets, let the flow be figured out using ARP and then add flow rules dynamically to the switches in the path.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

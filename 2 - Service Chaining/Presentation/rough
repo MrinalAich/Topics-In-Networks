@@ -1,0 +1,73 @@
+s1-eth1:0
+s1-eth3:1
+s1-eth4:2
+s1-eth5:3
+s1-eth6:4
+s1-eth2:5
+s1:6
+s2-eth1:7
+s2-eth2:8
+s2:9
+s3-eth1:10
+s3-eth2:11
+s3-eth3:12
+s3-eth4:13
+s3:14
+lo:15
+
+VLAN_ID_RCVD_FROM_ANY_HOST  = 0
+VLAN_ID_MIDDLEBOX_MB1       = 1
+VLAN_ID_MIDDLEBOX_MB2       = 2
+VLAN_ID_MIDDLEBOX_MB3       = 3
+VLAN_ID_S1_S3_TUNNEL_VIA_S2 = 4
+VLAN_ID_POLICY_COMPLETE     = 5
+ID_NOT_TO_BE_USED           = 6
+VLAN_ID_APPLY_SERVICE_CHAIN = 7
+
+s1-eth1:0
+s1-eth3:1
+s1-eth4:2
+s1-eth5:3
+s1-eth6:4
+s1-eth2:5
+s1-eth7:6
+s1:7
+s2-eth1:8
+s2-eth2:9
+s2:10
+s3-eth1:11
+s3-eth2:12
+s3-eth3:13
+s3-eth4:14
+s3-eth5:15
+s3:16
+s4-eth1:17
+s4-eth2:18
+s4:19
+s5-eth1:20
+s5-eth2:21
+s5:22
+lo:23
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+s1-eth1:0
+s1-eth2:1
+s1:2
+s2-eth1:3
+s2-eth2:4
+s2:5
+lo:6
+

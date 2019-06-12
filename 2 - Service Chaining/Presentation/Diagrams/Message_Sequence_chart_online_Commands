@@ -1,0 +1,38 @@
+title Message Sequence Chart: ICMP Request
+
+H1->S1: ICMP Request
+S1->MB1: VlanID: 1
+MB1->S1: VlanID: 1
+S1->S2: VlanID: 4
+S2->S3: VlanID: 4
+S3->MB2: VlanID:3
+MB2->S3: VlanID:3
+S3->S2: VlanID: 4
+S2->S1: VlanID: 4
+S1->MB3: VlanID: 2
+MB3->S1: VlanID: 2
+S1->S2:VlanID:5
+S2->S3:VlanID:5
+S3->H3: ICMP Request
+
+
+
+title Message Sequence Chart: ICMP Reply
+
+H3->S3: ICMP Reply
+S3->S2: VlanID: 7
+S2->S1: VlanID: 7
+S1->MB1: VlanID: 1
+MB1->S1: VlanID: 1
+S1->S2: VlanID: 4
+S2->S3: VlanID: 4
+S3->MB2: VlanID:3
+MB2->S3: VlanID:3
+S3->S2: VlanID: 4
+S2->S1: VlanID: 4
+S1->MB3: VlanID: 2
+MB3->S1: VlanID: 2
+S1->H1: ICMP Reply
+
+
+
